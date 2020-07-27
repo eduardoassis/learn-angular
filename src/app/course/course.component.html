@@ -1,0 +1,45 @@
+<h2>{{title}}</h2>
+
+<div *ngIf="courses.length > 0">
+    <ul>
+        <li *ngFor="let course of courses">{{course.name}}</li>
+    </ul>
+</div>
+<div *ngIf="courses.length == 0">
+    Not courses yet
+</div>
+
+
+<img [src]="imgUrl" />
+
+<table>
+    <tr>
+        <td [attr.colspan]="colSpan"></td>
+    </tr>
+</table>
+
+<div (click) = "onDivClick()">
+    <button (click) = "onSave($event)"
+            class="btn btn-primary" 
+            [class.active]="isActive" 
+            [style.backgroundColor]="isActive ? 'blue' : 'white'">
+    Save
+    </button>
+</div>
+
+<div>
+    <!-- <input [value]="email"email = $event.target.value; (keyup.enter)="onKeyUp()"/> -->
+    <input [(ngModel)]="email" (keyup.enter)="onKeyUp()"/>
+</div>
+
+<br /> <br /> <br /> <br />
+
+{{ course.title | uppercase | lowercase}} <br />
+{{ course.students  | number }} <br />
+{{ course.rating | number:'2.1-1'}} <br />
+{{ course.price | currency:'BRL':'symbol':'3.2-2'}} <br />
+{{ course.releaseDate | date:'longDate'}}
+
+<br /> <br /> <br /> <br />
+
+{{text | summary:10:" After ellipsis"}}
