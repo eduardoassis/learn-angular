@@ -10,11 +10,9 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 export class SignupFormComponent {
 
   form = new FormGroup({
-    username: new FormControl('', [
-      Validators.required,
-      Validators.email,
-      UsernameValidators.cannotContainSpace
-    ]),
+    username: new FormControl('', 
+      [Validators.required, Validators.required, UsernameValidators.cannotContainSpace],
+      [UsernameValidators.shouldBeUnique]),
     password: new FormControl('', Validators.required)
   })
 
