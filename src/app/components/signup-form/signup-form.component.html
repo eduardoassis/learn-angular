@@ -1,4 +1,7 @@
-<form [formGroup]="form">
+<form [formGroup]="form" (ngSubmit)="login()">
+    <div *ngIf="form.touched && form.invalid" class="alert alert-danger">
+        <div *ngIf="form.errors.invalidLogin">The username or password is invalid.</div> 
+    </div>
     <div class="form-group">
         <label for="username">Username</label>
         <input 
@@ -21,6 +24,9 @@
             id="password" 
             type="text" 
             class="form-control">
+        <div *ngIf="password.touched && password.invalid" class="alert alert-danger">
+            <div *ngIf="username.errors.required">Password is required.</div> 
+        </div>
     </div>
     <button class="btn btn-primary" type="submit">Sign Up</button>
 </form>
