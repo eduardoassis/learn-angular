@@ -27,7 +27,7 @@ export class SignupFormComponent {
   }
 
   login() {
-    this.form.setErrors({
+    this.form.controls.account.setErrors({
       invalidLogin: true
     });
   }
